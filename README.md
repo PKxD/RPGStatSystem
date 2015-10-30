@@ -21,8 +21,17 @@ You can also do recalculations or something on modification of stats (Sample -> 
     Stat<int> health = new Stat<int>("Health", vitality.Value * 10);
     vitality.modified += (sender, arguments) => {
       var args = (StatModifiedEventArgs<int>) arguments; // need to cast the arguments parameter to your need
-      health.BaseMod.Value = args.NewValue * 10;
+      health.BaseMod.Value = args.newValue * 10;
     };
+	
+	//or:
+	 vitality.modified += OnVitalityChanged;
+	 private void OnVitalityChanged(object sender, StatModifiedEventArgs e)
+    {
+        var args = (StatModifiedEventArgs<int>)e; // need to cast the arguments parameter to your need
+        health.BaseMod.Value = args.newValue * 10;
+    }
+	
       
 Adding and removing a modification:
 

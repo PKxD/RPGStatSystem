@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 
+[Serializable]
 public class StatModification<T> : IStatModification<T>
 {
     private T value;

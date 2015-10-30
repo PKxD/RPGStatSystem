@@ -10,6 +10,7 @@ using System;
 /// eg. adding a temporary health buff or normal stat changes through item changes.
 /// </summary>
 /// <typeparam name="T"></typeparam>
+[Serializable]
 public class Stat<T> : IStat<T>
 {
 
@@ -75,7 +76,7 @@ public class Stat<T> : IStat<T>
     {
         get
         {
-            throw new NotImplementedException();
+            return mods;
         }
     }
 
